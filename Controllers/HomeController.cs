@@ -12,7 +12,7 @@ public class HomeController : Controller
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-        var cs = @"server=10.0.0.6;userid=gate;password=ga33ere;database=gate";
+        var cs = @"server=10.0.0.7;userid=gate;password=ga33ere;database=gate";
         using var con = new MySqlConnection(cs);
         con.Open();
         Console.WriteLine($"MySQL version: {con.ServerVersion}");
