@@ -19,7 +19,7 @@ public class HomeController : Controller
         _mysqlConnection.Open();
         Console.WriteLine($"MySQL version: {_mysqlConnection.ServerVersion}");
         var cmd = new MySqlCommand("select version()", _mysqlConnection);
-        var version = cmd.ExecuteScalar().ToString();
+        var version = cmd.ExecuteScalar()?.ToString();
         Console.WriteLine($"MySQL version: {version}");
         var cmd2 = new MySqlCommand("select INSTITUTE_GROUP from meta_institute_group", _mysqlConnection);
         using var rdr = cmd2.ExecuteReader();
