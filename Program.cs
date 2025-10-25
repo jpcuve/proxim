@@ -1,7 +1,11 @@
+using MySqlConnector;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddMySqlDataSource(builder.Configuration.GetConnectionString("DefaultConnection"));
+builder.Services.AddScoped<MySqlConnection>(sp => new MySqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
