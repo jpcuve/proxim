@@ -11,4 +11,12 @@
       <PackageReference Include="MySqlConnector.DependencyInjection" Version="2.4.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Properties\PublishProfiles\localhost.pubxml">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </None>
+    </ItemGroup>
+
 </Project>
