@@ -17,10 +17,10 @@ public class HomeController : Controller
         _logger = logger;
         _mysqlConnection = mysqlConnection;
         _mysqlConnection.Open();
-        Console.WriteLine($"MySQL version: {_mysqlConnection.ServerVersion}");
+        _logger.LogInformation("MySQL version: {conn}", _mysqlConnection);
         var cmd = new MySqlCommand("select version()", _mysqlConnection);
         var version = cmd.ExecuteScalar()?.ToString();
-        Console.WriteLine($"MySQL version: {version}");
+        _logger.LogInformation("MySQL version: {version}", version);
         var cmd2 = new MySqlCommand("select INSTITUTE_GROUP from meta_institute_group", _mysqlConnection);
         using var rdr = cmd2.ExecuteReader();
         while (rdr.Read())
